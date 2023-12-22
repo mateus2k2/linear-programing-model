@@ -1,0 +1,4 @@
+glpsol --check --cover --clique --gomory --mir -m implementacao.mod --data implementacao.dat --wlp implementacao.lp; subl implementacao.lp
+
+glpsol --cover --clique --gomory --mir -m implementacao.mod --data implementacao.dat -o implementacao.out; subl implementacao.out
+
