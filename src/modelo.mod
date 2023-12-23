@@ -1,111 +1,82 @@
-set N;  # Set of jobs
-
-# Parameters
-param lambda; # Scale parameter of the system
-param beta;   # Shape parameter of the system
-
-param M;     # A large positive value
-param p {N}; # Processing time of job i
-param d {N}; # Due date of job i
-param TIPM;  # Duration time of an IPM
-param TPPM;  # Duration time of a PPM
-param TF;    # Penalty time of failure
-param theta; # Improvement factor
-param delta; # Reliability threshold
-
-# param T = 0.1
-# param R = 0.5
-
-# ----------------------------------------------------------------------------------------------------------------
-
-
-# Print Paarameters
-printf "\nLoaded Data:\n";
-printf "lambda: %.2f\n", lambda;
-printf "beta: %.2f\n", beta;
-printf "theta: %.2f\n", theta;
-printf "M: %d\n", M;
-printf "p: %s\n", p[1];
-printf "d: %s\n", d[1];
-printf "TIPM: %.2f\n", TIPM;
-printf "TPPM: %.2f\n", TPPM;
-printf "TF: %.2f\n", TF;
-printf "delta: %.2f\n", delta;
+set I;               # Set of periods
+set J;               # Set of jobs
 
 
 # ----------------------------------------------------------------------------------------------------------------
 
 
-# Variables
-var x{i in N, j in N} binary;         # 1 if job i is processed in position j; 0 otherwise
-var y{j in N}         binary;         # 1 if an IPM is inserted at the beginning of position j; 0 otherwise
-var z{j in N}         binary;         # 1 if a PPM is inserted at the beginning of position j; 0 otherwise
-var s{j in N}         >= 0;           # Start time of the machine in position j
-var c{i in N}         >= 0;           # Completion time of job i
-
-var R{j in N}         >= 0, integer;  # Machine reliability after the job in position j is processed
-var F{j in N}         >= 0, integer;  # Expected cumulative number of failures at position j
-
-var ub{j in N}        >= 0, integer;  # Example machines dummy age before the job in each position
-var uf{j in N}        >= 0, integer;  # Example machines dummy age after the job in each position
-
-var t{i in N}         >= 0, integer; # Auxiliary variable for tardiness
+param p{J};          # Processing time of job j
+param r{J};          # Required resource amount for job j
+param T;             # Maximum duration of the periods
+param R;             # Maximum amount of resource for each period
+param M;             # A large positive number
 
 
 # ----------------------------------------------------------------------------------------------------------------
 
 
-# Objective
-minimize Total_Tardiness:
-    sum{i in N} t[i];
-
-# Tardiness constraints
-subject to TardinessConstraint{i in N}:
-    t[i] >= c[i] - d[i];
+printf "p[1] = %i /n", p[1];
+printf "r[1] = %i /n", r[1];
+printf "T = %i /n", T;
+printf "R = %i /n", R;
+printf "M = %i /n", M;
 
 
 # ----------------------------------------------------------------------------------------------------------------
 
 
-# Constraints
-subject to ExpectedFailuresConstraint{j in N}:
-    # F[j] = lambda * (uf[j]^beta - ub[1]^beta);
-    F[j] = lambda * (uf[j] - ub[1]);
-
-subject to OneJobPerPosition{j in N}:
-    sum{i in N} x[i, j] = 1;
-
-subject to OnePositionPerJob{i in N}:
-    sum{j in N} x[i, j] = 1;
-
-subject to StartTimeConstraint{i in N, j in N}:
-    s[j + 1] >= x[i, j] * c[i];
-
-subject to CompletionTimeConstraint{i in N, j in N}:
-    c[i] + M * (1 - x[i, j]) >= s[j] + p[i] + TIPM * y[j] + TPPM * z[j] + TF * (lambda * (uf[j]^beta - ub[j]^beta));
-
-subject to MachineAgeConstraint{j in N}:
-    ub[j] = uf[j - 1] * (1 - theta * y[j] - z[j]);
-
-subject to ProcessingTimeConstraint{i in N, j in N}:
-    uf[j] >= ub[j] + x[i, j] * p[i];
-
-subject to ReliabilityConstraint{j in N}:
-    R[j] = exp(-lambda * (uf[j]^beta - ub[j]^beta));
-    R[j] >= delta;
-
-subject to MaintenanceConstraint{j in N}:
-    y[j] + z[j] <= 1;
+var X{I, J} binary;  # 1 if job j is processed in period i, 0 otherwise
+var y{I}    binary;  # 1 if period i is used in a given solution, 0 otherwise
+var w{I}    binary;  # 1 if it is the period with the longest idle time, 0 otherwise
+var z;               # Computes the longest idle time (maximum slack) in the last period
 
 
 # ----------------------------------------------------------------------------------------------------------------
 
 
-# Binary Constraints
-subject to BinaryConstraints{i in N, j in N}:
-    x[i, j] binary;
-    y[j] binary;
-    z[j] binary;
+#minimize obj:
+#    T * sum{i in I} y[i] - z;
+
+
+# ----------------------------------------------------------------------------------------------------------------
+
+
+subject to job_assignment{j in J}:
+    sum{i in I} X[i, j] = 1;
+
+subject to time_limit{i in I}:
+    sum{j in J} p[j] * X[i, j] <= T;
+
+subject to resource_limit{i in I}:
+    sum{j in J} r[j] * X[i, j] <= R;
+
+subject to job_assignment_limit{i in I, j in J}:
+    X[i, j] <= y[i];
+
+subject to longest_idle_time:
+    sum{i in I} w[i] = 1;
+
+subject to longest_idle_time_limit{i in I}:
+    w[i] <= y[i];
+
+subject to slack_constraint{i in I}:
+    z <= M *  1 - w[i] + T * y[i] - sum{j in J} p[j] * X[i, j];
+
+subject to non_negativity_y{i in I}:
+    y[i] >= 0;
+
+
+# ----------------------------------------------------------------------------------------------------------------
+
+
+# subject to binary_constraints{i in I, j in J}:
+#     X[i, j] binary;
+
+# subject to binary_constraints_w{i in I}:
+#     w[i] binary;
+
+# subject to non_negativity_z:
+#     z >= 0;
 
 
 # ----------------------------------------------------------------------------------------------------------------
@@ -113,32 +84,35 @@ subject to BinaryConstraints{i in N, j in N}:
 
 data;
 
-# Sets
-set N := 1 2 3;
+set J := 1 2 3 4 5 6 7 8 9 10;
+set I := 1 2 3 4 5 6 7 8 9;
 
-# Parameters
-param lambda := 0.000001;
-param beta := 3;
+param p := 
+    1 133
+    2 84
+    3 48
+    4 29
+    5 152
+    6 93
+    7 78
+    8 7
+    9 66
+    10 52;
 
-# Additional Parameters
-param M := 1000;
-param p :=
-	1 1
-	2 2
-	3 2;
+param r := 
+    1 39
+    2 88
+    3 32
+    4 26
+    5 122
+    6 135
+    7 87
+    8 82
+    9 151
+    10 136;
 
-param d :=
-	1 4
-	2 5
-	3 6;
-	
-param TIPM   := 2;
-param TPPM   := 5;
-param TF     := 10;
-param theta  := 0.4;
-param delta  := 0.78;
+param T := 153;
+param R := 151;
+param M := 1000000;
 
-# param T = 0.1
-# param R = 0.5
-
-# ----------------------------------------------------------------------------------------------------------------
+end;

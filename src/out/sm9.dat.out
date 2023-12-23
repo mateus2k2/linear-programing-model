@@ -1,0 +1,383 @@
+Problem:    modelo
+Rows:       131
+Columns:    97 (96 integer, 96 binary)
+Non-zeros:  536
+Status:     INTEGER OPTIMAL
+Objective:  0 (MINimum)
+
+   No.   Row name        Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 job_assignment[1]
+                                   1             1             = 
+     2 job_assignment[2]
+                                   1             1             = 
+     3 job_assignment[3]
+                                   1             1             = 
+     4 job_assignment[4]
+                                   1             1             = 
+     5 job_assignment[5]
+                                   1             1             = 
+     6 job_assignment[6]
+                                   1             1             = 
+     7 job_assignment[7]
+                                   1             1             = 
+     8 job_assignment[8]
+                                   1             1             = 
+     9 job_assignment[9]
+                                   1             1             = 
+    10 job_assignment[10]
+                                   1             1             = 
+    11 time_limit[1]
+                                  63                         153 
+    12 time_limit[2]
+                                 108                         153 
+    13 time_limit[3]
+                                 149                         153 
+    14 time_limit[4]
+                                 116                         153 
+    15 time_limit[5]
+                                  96                         153 
+    16 time_limit[6]
+                                  94                         153 
+    17 time_limit[7]
+                                 102                         153 
+    18 time_limit[8]
+                                 123                         153 
+    19 resource_limit[1]
+                                  75                         198 
+    20 resource_limit[2]
+                                 173                         198 
+    21 resource_limit[3]
+                                 175                         198 
+    22 resource_limit[4]
+                                  91                         198 
+    23 resource_limit[5]
+                                 173                         198 
+    24 resource_limit[6]
+                                  27                         198 
+    25 resource_limit[7]
+                                 186                         198 
+    26 resource_limit[8]
+                                 172                         198 
+    27 job_assignment_limit[1,1]
+                                  -1                          -0 
+    28 job_assignment_limit[1,2]
+                                  -1                          -0 
+    29 job_assignment_limit[1,3]
+                                  -1                          -0 
+    30 job_assignment_limit[1,4]
+                                  -1                          -0 
+    31 job_assignment_limit[1,5]
+                                  -1                          -0 
+    32 job_assignment_limit[1,6]
+                                  -1                          -0 
+    33 job_assignment_limit[1,7]
+                                  -1                          -0 
+    34 job_assignment_limit[1,8]
+                                  -1                          -0 
+    35 job_assignment_limit[1,9]
+                                  -1                          -0 
+    36 job_assignment_limit[1,10]
+                                   0                          -0 
+    37 job_assignment_limit[2,1]
+                                  -1                          -0 
+    38 job_assignment_limit[2,2]
+                                  -1                          -0 
+    39 job_assignment_limit[2,3]
+                                  -1                          -0 
+    40 job_assignment_limit[2,4]
+                                   0                          -0 
+    41 job_assignment_limit[2,5]
+                                  -1                          -0 
+    42 job_assignment_limit[2,6]
+                                  -1                          -0 
+    43 job_assignment_limit[2,7]
+                                  -1                          -0 
+    44 job_assignment_limit[2,8]
+                                  -1                          -0 
+    45 job_assignment_limit[2,9]
+                                  -1                          -0 
+    46 job_assignment_limit[2,10]
+                                  -1                          -0 
+    47 job_assignment_limit[3,1]
+                                  -1                          -0 
+    48 job_assignment_limit[3,2]
+                                  -1                          -0 
+    49 job_assignment_limit[3,3]
+                                  -1                          -0 
+    50 job_assignment_limit[3,4]
+                                  -1                          -0 
+    51 job_assignment_limit[3,5]
+                                  -1                          -0 
+    52 job_assignment_limit[3,6]
+                                   0                          -0 
+    53 job_assignment_limit[3,7]
+                                  -1                          -0 
+    54 job_assignment_limit[3,8]
+                                  -1                          -0 
+    55 job_assignment_limit[3,9]
+                                  -1                          -0 
+    56 job_assignment_limit[3,10]
+                                  -1                          -0 
+    57 job_assignment_limit[4,1]
+                                  -1                          -0 
+    58 job_assignment_limit[4,2]
+                                   0                          -0 
+    59 job_assignment_limit[4,3]
+                                  -1                          -0 
+    60 job_assignment_limit[4,4]
+                                  -1                          -0 
+    61 job_assignment_limit[4,5]
+                                  -1                          -0 
+    62 job_assignment_limit[4,6]
+                                  -1                          -0 
+    63 job_assignment_limit[4,7]
+                                  -1                          -0 
+    64 job_assignment_limit[4,8]
+                                  -1                          -0 
+    65 job_assignment_limit[4,9]
+                                  -1                          -0 
+    66 job_assignment_limit[4,10]
+                                  -1                          -0 
+    67 job_assignment_limit[5,1]
+                                  -1                          -0 
+    68 job_assignment_limit[5,2]
+                                  -1                          -0 
+    69 job_assignment_limit[5,3]
+                                   0                          -0 
+    70 job_assignment_limit[5,4]
+                                  -1                          -0 
+    71 job_assignment_limit[5,5]
+                                  -1                          -0 
+    72 job_assignment_limit[5,6]
+                                  -1                          -0 
+    73 job_assignment_limit[5,7]
+                                  -1                          -0 
+    74 job_assignment_limit[5,8]
+                                   0                          -0 
+    75 job_assignment_limit[5,9]
+                                  -1                          -0 
+    76 job_assignment_limit[5,10]
+                                  -1                          -0 
+    77 job_assignment_limit[6,1]
+                                  -1                          -0 
+    78 job_assignment_limit[6,2]
+                                  -1                          -0 
+    79 job_assignment_limit[6,3]
+                                  -1                          -0 
+    80 job_assignment_limit[6,4]
+                                  -1                          -0 
+    81 job_assignment_limit[6,5]
+                                  -1                          -0 
+    82 job_assignment_limit[6,6]
+                                  -1                          -0 
+    83 job_assignment_limit[6,7]
+                                   0                          -0 
+    84 job_assignment_limit[6,8]
+                                  -1                          -0 
+    85 job_assignment_limit[6,9]
+                                  -1                          -0 
+    86 job_assignment_limit[6,10]
+                                  -1                          -0 
+    87 job_assignment_limit[7,1]
+                                   0                          -0 
+    88 job_assignment_limit[7,2]
+                                  -1                          -0 
+    89 job_assignment_limit[7,3]
+                                  -1                          -0 
+    90 job_assignment_limit[7,4]
+                                  -1                          -0 
+    91 job_assignment_limit[7,5]
+                                  -1                          -0 
+    92 job_assignment_limit[7,6]
+                                  -1                          -0 
+    93 job_assignment_limit[7,7]
+                                  -1                          -0 
+    94 job_assignment_limit[7,8]
+                                  -1                          -0 
+    95 job_assignment_limit[7,9]
+                                   0                          -0 
+    96 job_assignment_limit[7,10]
+                                  -1                          -0 
+    97 job_assignment_limit[8,1]
+                                  -1                          -0 
+    98 job_assignment_limit[8,2]
+                                  -1                          -0 
+    99 job_assignment_limit[8,3]
+                                  -1                          -0 
+   100 job_assignment_limit[8,4]
+                                  -1                          -0 
+   101 job_assignment_limit[8,5]
+                                   0                          -0 
+   102 job_assignment_limit[8,6]
+                                  -1                          -0 
+   103 job_assignment_limit[8,7]
+                                  -1                          -0 
+   104 job_assignment_limit[8,8]
+                                  -1                          -0 
+   105 job_assignment_limit[8,9]
+                                  -1                          -0 
+   106 job_assignment_limit[8,10]
+                                  -1                          -0 
+   107 longest_idle_time
+                                   1             1             = 
+   108 longest_idle_time_limit[1]
+                                  -1                          -0 
+   109 longest_idle_time_limit[2]
+                                  -1                          -0 
+   110 longest_idle_time_limit[3]
+                                  -1                          -0 
+   111 longest_idle_time_limit[4]
+                                  -1                          -0 
+   112 longest_idle_time_limit[5]
+                                  -1                          -0 
+   113 longest_idle_time_limit[6]
+                                  -1                          -0 
+   114 longest_idle_time_limit[7]
+                                  -1                          -0 
+   115 longest_idle_time_limit[8]
+                                   0                          -0 
+   116 slack_constraint[1]
+                              999914                       1e+06 
+   117 slack_constraint[2]
+                              999959                       1e+06 
+   118 slack_constraint[3]
+                               1e+06                       1e+06 
+   119 slack_constraint[4]
+                              999967                       1e+06 
+   120 slack_constraint[5]
+                              999947                       1e+06 
+   121 slack_constraint[6]
+                              999945                       1e+06 
+   122 slack_constraint[7]
+                              999953                       1e+06 
+   123 slack_constraint[8]
+                              999975                       1e+06 
+   124 non_negativity_y[1]
+                                   1            -0               
+   125 non_negativity_y[2]
+                                   1            -0               
+   126 non_negativity_y[3]
+                                   1            -0               
+   127 non_negativity_y[4]
+                                   1            -0               
+   128 non_negativity_y[5]
+                                   1            -0               
+   129 non_negativity_y[6]
+                                   1            -0               
+   130 non_negativity_y[7]
+                                   1            -0               
+   131 non_negativity_y[8]
+                                   1            -0               
+
+   No. Column name       Activity     Lower bound   Upper bound
+------ ------------    ------------- ------------- -------------
+     1 X[1,1]       *              0             0             1 
+     2 X[2,1]       *              0             0             1 
+     3 X[3,1]       *              0             0             1 
+     4 X[4,1]       *              0             0             1 
+     5 X[5,1]       *              0             0             1 
+     6 X[6,1]       *              0             0             1 
+     7 X[7,1]       *              1             0             1 
+     8 X[8,1]       *              0             0             1 
+     9 X[1,2]       *              0             0             1 
+    10 X[2,2]       *              0             0             1 
+    11 X[3,2]       *              0             0             1 
+    12 X[4,2]       *              1             0             1 
+    13 X[5,2]       *              0             0             1 
+    14 X[6,2]       *              0             0             1 
+    15 X[7,2]       *              0             0             1 
+    16 X[8,2]       *              0             0             1 
+    17 X[1,3]       *              0             0             1 
+    18 X[2,3]       *              0             0             1 
+    19 X[3,3]       *              0             0             1 
+    20 X[4,3]       *              0             0             1 
+    21 X[5,3]       *              1             0             1 
+    22 X[6,3]       *              0             0             1 
+    23 X[7,3]       *              0             0             1 
+    24 X[8,3]       *              0             0             1 
+    25 X[1,4]       *              0             0             1 
+    26 X[2,4]       *              1             0             1 
+    27 X[3,4]       *              0             0             1 
+    28 X[4,4]       *              0             0             1 
+    29 X[5,4]       *              0             0             1 
+    30 X[6,4]       *              0             0             1 
+    31 X[7,4]       *              0             0             1 
+    32 X[8,4]       *              0             0             1 
+    33 X[1,5]       *              0             0             1 
+    34 X[2,5]       *              0             0             1 
+    35 X[3,5]       *              0             0             1 
+    36 X[4,5]       *              0             0             1 
+    37 X[5,5]       *              0             0             1 
+    38 X[6,5]       *              0             0             1 
+    39 X[7,5]       *              0             0             1 
+    40 X[8,5]       *              1             0             1 
+    41 X[1,6]       *              0             0             1 
+    42 X[2,6]       *              0             0             1 
+    43 X[3,6]       *              1             0             1 
+    44 X[4,6]       *              0             0             1 
+    45 X[5,6]       *              0             0             1 
+    46 X[6,6]       *              0             0             1 
+    47 X[7,6]       *              0             0             1 
+    48 X[8,6]       *              0             0             1 
+    49 X[1,7]       *              0             0             1 
+    50 X[2,7]       *              0             0             1 
+    51 X[3,7]       *              0             0             1 
+    52 X[4,7]       *              0             0             1 
+    53 X[5,7]       *              0             0             1 
+    54 X[6,7]       *              1             0             1 
+    55 X[7,7]       *              0             0             1 
+    56 X[8,7]       *              0             0             1 
+    57 X[1,8]       *              0             0             1 
+    58 X[2,8]       *              0             0             1 
+    59 X[3,8]       *              0             0             1 
+    60 X[4,8]       *              0             0             1 
+    61 X[5,8]       *              1             0             1 
+    62 X[6,8]       *              0             0             1 
+    63 X[7,8]       *              0             0             1 
+    64 X[8,8]       *              0             0             1 
+    65 X[1,9]       *              0             0             1 
+    66 X[2,9]       *              0             0             1 
+    67 X[3,9]       *              0             0             1 
+    68 X[4,9]       *              0             0             1 
+    69 X[5,9]       *              0             0             1 
+    70 X[6,9]       *              0             0             1 
+    71 X[7,9]       *              1             0             1 
+    72 X[8,9]       *              0             0             1 
+    73 X[1,10]      *              1             0             1 
+    74 X[2,10]      *              0             0             1 
+    75 X[3,10]      *              0             0             1 
+    76 X[4,10]      *              0             0             1 
+    77 X[5,10]      *              0             0             1 
+    78 X[6,10]      *              0             0             1 
+    79 X[7,10]      *              0             0             1 
+    80 X[8,10]      *              0             0             1 
+    81 y[1]         *              1             0             1 
+    82 y[2]         *              1             0             1 
+    83 y[3]         *              1             0             1 
+    84 y[4]         *              1             0             1 
+    85 y[5]         *              1             0             1 
+    86 y[6]         *              1             0             1 
+    87 y[7]         *              1             0             1 
+    88 y[8]         *              1             0             1 
+    89 w[1]         *              0             0             1 
+    90 w[2]         *              0             0             1 
+    91 w[3]         *              0             0             1 
+    92 w[4]         *              0             0             1 
+    93 w[5]         *              0             0             1 
+    94 w[6]         *              0             0             1 
+    95 w[7]         *              0             0             1 
+    96 w[8]         *              1             0             1 
+    97 z                       1e+06                             
+
+Integer feasibility conditions:
+
+KKT.PE: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+KKT.PB: max.abs.err = 0.00e+00 on row 0
+        max.rel.err = 0.00e+00 on row 0
+        High quality
+
+End of output

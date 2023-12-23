@@ -1,0 +1,56 @@
+GLPSOL: GLPK LP/MIP Solver, v4.65
+Parameter(s) specified in the command line:
+ --cover --clique --gomory --mir -m modelo.mod -o out/sm13.dat.out --data
+ inputs/sm13.dat
+Reading model section from modelo.mod...
+modelo.mod:85: warning: data section ignored
+85 lines were read
+Reading data section from inputs/sm13.dat...
+inputs/sm13.dat:54: warning: final NL missing before end of file
+54 lines were read
+p[1] = 93 /nr[1] = 115 /nT = 172 /nR = 162 /nM = 1000000 /nGenerating job_assignment...
+Generating time_limit...
+Generating resource_limit...
+Generating job_assignment_limit...
+Generating longest_idle_time...
+Generating longest_idle_time_limit...
+Generating slack_constraint...
+Generating non_negativity_y...
+Model has been successfully generated
+GLPK Integer Optimizer, v4.65
+471 rows, 397 columns, 2286 non-zeros
+396 integer variables, all of which are binary
+Preprocessing...
+453 rows, 397 columns, 2268 non-zeros
+396 integer variables, all of which are binary
+Scaling...
+ A: min|aij| =  1.000e+00  max|aij| =  1.720e+02  ratio =  1.720e+02
+GM: min|aij| =  2.761e-01  max|aij| =  3.621e+00  ratio =  1.311e+01
+EQ: min|aij| =  7.625e-02  max|aij| =  1.000e+00  ratio =  1.311e+01
+2N: min|aij| =  5.664e-02  max|aij| =  1.313e+00  ratio =  2.317e+01
+Constructing initial basis...
+Size of triangular part is 453
+Solving LP relaxation...
+GLPK Simplex Optimizer, v4.65
+453 rows, 397 columns, 2268 non-zeros
+      0: obj =   0.000000000e+00 inf =   1.864e+02 (41)
+    314: obj =   0.000000000e+00 inf =   0.000e+00 (0) 1
+OPTIMAL LP SOLUTION FOUND
+Integer optimization begins...
+Long-step dual simplex will be used
+Gomory's cuts enabled
+MIR cuts enabled
+Cover cuts enabled
+Number of 0-1 knapsack inequalities = 57
+Clique cuts enabled
+Constructing conflict graph...
+Conflict graph has 378 + 18 = 396 vertices
++   314: mip =     not found yet >=              -inf        (1; 0)
+Cuts on level 0: gmi = 6; mir = 9; clq = 4;
+Cuts on level 50: gmi = 9; mir = 10; cov = 1; clq = 6;
++  1979: >>>>>   0.000000000e+00 >=   0.000000000e+00   0.0% (49; 52)
++  1979: mip =   0.000000000e+00 >=     tree is empty   0.0% (0; 151)
+INTEGER OPTIMAL SOLUTION FOUND
+Time used:   0.6 secs
+Memory used: 2.1 Mb (2199200 bytes)
+Writing MIP solution to 'out/sm13.dat.out'...
