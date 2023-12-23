@@ -46,11 +46,3 @@ Clique cuts enabled
 Constructing conflict graph...
 Conflict graph has 378 + 18 = 396 vertices
 +   314: mip =     not found yet >=              -inf        (1; 0)
-Cuts on level 0: gmi = 6; mir = 9; clq = 4;
-Cuts on level 50: gmi = 9; mir = 10; cov = 1; clq = 6;
-+  1979: >>>>>   0.000000000e+00 >=   0.000000000e+00   0.0% (49; 52)
-+  1979: mip =   0.000000000e+00 >=     tree is empty   0.0% (0; 151)
-INTEGER OPTIMAL SOLUTION FOUND
-Time used:   0.6 secs
-Memory used: 2.1 Mb (2199200 bytes)
-Writing MIP solution to 'out/sm13.dat.out'...
