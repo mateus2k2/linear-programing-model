@@ -7,33 +7,34 @@ modelo.mod:85: warning: data section ignored
 Reading data section from inputs/sm1.dat...
 inputs/sm1.dat:34: warning: final NL missing before end of file
 34 lines were read
-p[1] = 133 /nr[1] = 39 /nT = 153 /nR = 151 /nM = 1000000 /nGenerating job_assignment...
+p[1] = 133 /nr[1] = 39 /nT = 153 /nR = 151 /nM = 1000000 /nGenerating obj...
+Generating job_assignment...
 Generating time_limit...
 Generating resource_limit...
 Generating job_assignment_limit...
 Generating longest_idle_time...
 Generating longest_idle_time_limit...
 Generating slack_constraint...
-Generating non_negativity_y...
 Model has been successfully generated
 GLPK Integer Optimizer, v4.65
-146 rows, 109 columns, 603 non-zeros
+138 rows, 109 columns, 604 non-zeros
 108 integer variables, all of which are binary
 Preprocessing...
 137 rows, 109 columns, 594 non-zeros
 108 integer variables, all of which are binary
 Scaling...
- A: min|aij| =  1.000e+00  max|aij| =  1.530e+02  ratio =  1.530e+02
-GM: min|aij| =  2.817e-01  max|aij| =  3.550e+00  ratio =  1.260e+01
-EQ: min|aij| =  8.085e-02  max|aij| =  1.000e+00  ratio =  1.237e+01
-2N: min|aij| =  6.250e-02  max|aij| =  1.000e+00  ratio =  1.600e+01
+ A: min|aij| =  1.000e+00  max|aij| =  1.000e+06  ratio =  1.000e+06
+GM: min|aij| =  1.112e-01  max|aij| =  8.991e+00  ratio =  8.085e+01
+EQ: min|aij| =  1.237e-02  max|aij| =  1.000e+00  ratio =  8.085e+01
+2N: min|aij| =  7.813e-03  max|aij| =  1.281e+00  ratio =  1.640e+02
 Constructing initial basis...
 Size of triangular part is 137
 Solving LP relaxation...
 GLPK Simplex Optimizer, v4.65
 137 rows, 109 columns, 594 non-zeros
-      0: obj =   0.000000000e+00 inf =   8.041e+01 (22)
-     76: obj =   0.000000000e+00 inf =   1.665e-16 (0)
+      0: obj =   0.000000000e+00 inf =   2.193e+00 (14)
+     79: obj =   3.060000000e+02 inf =   1.110e-16 (0)
+*   155: obj =  -8.886704444e+05 inf =   8.730e-14 (0)
 OPTIMAL LP SOLUTION FOUND
 Integer optimization begins...
 Long-step dual simplex will be used
@@ -44,12 +45,53 @@ Number of 0-1 knapsack inequalities = 29
 Clique cuts enabled
 Constructing conflict graph...
 Conflict graph has 99 + 9 = 108 vertices
-+    76: mip =     not found yet >=              -inf        (1; 0)
-Cuts on level 0: gmi = 9; mir = 3; cov = 1; clq = 4;
-Cuts on level 27: gmi = 9; mir = 3; cov = 1; clq = 4;
-+   326: >>>>>   0.000000000e+00 >=   0.000000000e+00   0.0% (28; 0)
-+   326: mip =   0.000000000e+00 >=     tree is empty   0.0% (0; 55)
++   155: mip =     not found yet >=              -inf        (1; 0)
+Cuts on level 0: gmi = 16; mir = 6; cov = 2; clq = 7;
+Cuts on level 12: gmi = 16; mir = 6; cov = 2; clq = 7;
++   907: >>>>>   1.123000000e+03 >=  -8.734551235e+05        (13; 0)
+Cuts on level 10: gmi = 22; mir = 10; cov = 6; clq = 12;
++  2147: >>>>>   9.700000000e+02 >=  -8.550481366e+05        (46; 2)
++ 39184: mip =   9.700000000e+02 >=  -7.989748000e+05        (1822; 527)
++ 79155: mip =   9.700000000e+02 >=  -7.989233214e+05        (4057; 1471)
++118017: mip =   9.700000000e+02 >=  -7.490082615e+05        (5966; 2075)
++162112: mip =   9.700000000e+02 >=  -7.489907500e+05        (7370; 2980)
++203727: mip =   9.700000000e+02 >=  -7.489775078e+05        (8498; 3939)
++241725: mip =   9.700000000e+02 >=  -7.489642500e+05        (9751; 4993)
++268281: mip =   9.700000000e+02 >=  -7.489537500e+05        (10900; 5762)
++292337: mip =   9.700000000e+02 >=  -7.488590000e+05        (11938; 6566)
++322454: mip =   9.700000000e+02 >=  -7.136700868e+05        (12369; 7868)
++355624: mip =   9.700000000e+02 >=  -6.656783333e+05        (13496; 8710)
++387752: mip =   9.700000000e+02 >=  -6.656716667e+05        (13657; 9929)
+Time used: 60.0 secs.  Memory used: 18.9 Mb.
++419826: mip =   9.700000000e+02 >=  -6.656605680e+05        (13972; 11010)
++447926: mip =   9.700000000e+02 >=  -6.656513333e+05        (14214; 12132)
++475121: mip =   9.700000000e+02 >=  -6.656423333e+05        (14416; 13208)
++493504: mip =   9.700000000e+02 >=  -6.656333333e+05        (14536; 14064)
++514601: mip =   9.700000000e+02 >=  -6.656153333e+05        (14847; 15090)
++526512: mip =   9.700000000e+02 >=  -6.655943333e+05        (15143; 15683)
++536342: mip =   9.700000000e+02 >=  -6.655303333e+05        (15186; 16639)
++546640: mip =   9.700000000e+02 >=  -6.654156667e+05        (14325; 18789)
++570419: mip =   9.700000000e+02 >=  -6.313308224e+05        (14351; 19795)
++587770: mip =   9.700000000e+02 >=  -5.051578500e+05        (13907; 21279)
++608504: mip =   9.700000000e+02 >=  -4.990230000e+05        (13779; 22942)
++630005: mip =   9.700000000e+02 >=  -4.990100000e+05        (13561; 24774)
+Time used: 120.0 secs.  Memory used: 24.9 Mb.
++645361: mip =   9.700000000e+02 >=  -4.990038182e+05        (13255; 26330)
++661609: mip =   9.700000000e+02 >=  -4.989959541e+05        (12643; 28527)
++678981: mip =   9.700000000e+02 >=  -4.989860000e+05        (11846; 31458)
++691254: mip =   9.700000000e+02 >=  -4.989730000e+05        (11427; 33565)
++701300: mip =   9.700000000e+02 >=  -4.989555000e+05        (11151; 35361)
++709524: mip =   9.700000000e+02 >=  -4.989267222e+05        (10975; 36859)
++714935: mip =   9.700000000e+02 >=  -4.988700000e+05        (10403; 39226)
++720251: mip =   9.700000000e+02 >=  -4.988160000e+05        (8836; 44838)
++730816: mip =   9.700000000e+02 >=  -4.789362400e+05        (7904; 47711)
++752143: mip =   9.700000000e+02 >=  -3.720685231e+05        (5348; 56071)
++776123: mip =   9.700000000e+02 >=   8.697345392e+02  10.3% (2244; 70078)
++809345: mip =   9.700000000e+02 >=   9.249999999e+02   4.6% (1767; 71995)
+Time used: 180.0 secs.  Memory used: 25.0 Mb.
++850290: mip =   9.700000000e+02 >=   9.351052858e+02   3.6% (992; 74990)
++861213: mip =   9.700000000e+02 >=     tree is empty   0.0% (0; 80863)
 INTEGER OPTIMAL SOLUTION FOUND
-Time used:   0.0 secs
-Memory used: 1.0 Mb (1031306 bytes)
+Time used:   182.2 secs
+Memory used: 25.1 Mb (26298328 bytes)
 Writing MIP solution to 'out/sm1.dat.out'...

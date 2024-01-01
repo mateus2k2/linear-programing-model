@@ -28,14 +28,14 @@ printf "M = %i /n", M;
 var X{I, J} binary;  # 1 if job j is processed in period i, 0 otherwise
 var y{I}    binary;  # 1 if period i is used in a given solution, 0 otherwise
 var w{I}    binary;  # 1 if it is the period with the longest idle time, 0 otherwise
-var z;               # Computes the longest idle time (maximum slack) in the last period
+var z       >= 0  ;  # Computes the longest idle time (maximum slack) in the last period
 
 
 # ----------------------------------------------------------------------------------------------------------------
 
 
-#minimize obj:
-#    T * sum{i in I} y[i] - z;
+minimize obj:
+    T * sum{i in I} y[i] - z;
 
 
 # ----------------------------------------------------------------------------------------------------------------
@@ -50,7 +50,7 @@ subject to time_limit{i in I}:
 subject to resource_limit{i in I}:
     sum{j in J} r[j] * X[i, j] <= R;
 
-subject to job_assignment_limit{i in I, j in J}:
+subject to job_assignment_limit{i in I, j in J}: # VERIFICAR
     X[i, j] <= y[i];
 
 subject to longest_idle_time:
@@ -60,14 +60,14 @@ subject to longest_idle_time_limit{i in I}:
     w[i] <= y[i];
 
 subject to slack_constraint{i in I}:
-    z <= M *  1 - w[i] + T * y[i] - sum{j in J} p[j] * X[i, j];
-
-subject to non_negativity_y{i in I}:
-    y[i] >= 0;
+    z <= M * (1 - w[i]) + T * (y[i]) - sum{j in J} p[j] * X[i, j];
 
 
 # ----------------------------------------------------------------------------------------------------------------
 
+
+# subject to non_negativity_y{i in I}:
+#     y[i] >= 0;
 
 # subject to binary_constraints{i in I, j in J}:
 #     X[i, j] binary;
@@ -81,38 +81,29 @@ subject to non_negativity_y{i in I}:
 
 # ----------------------------------------------------------------------------------------------------------------
 
+# Data exemplo do Artigo
 
 data;
 
-set J := 1 2 3 4 5 6 7 8 9 10;
-set I := 1 2 3 4 5 6 7 8 9;
+set J := 1 2 3 4 5;
+set I := 1 2 3;
 
 param p := 
-    1 133
-    2 84
-    3 48
-    4 29
-    5 152
-    6 93
-    7 78
-    8 7
-    9 66
-    10 52;
+    1 2
+    2 1
+    3 5
+    4 4
+    5 3;
 
 param r := 
-    1 39
-    2 88
-    3 32
-    4 26
-    5 122
-    6 135
-    7 87
-    8 82
-    9 151
-    10 136;
+    1 3
+    2 3
+    3 4
+    4 1
+    5 1;
 
-param T := 153;
-param R := 151;
+param T := 5;
+param R := 4;
 param M := 1000000;
 
 end;

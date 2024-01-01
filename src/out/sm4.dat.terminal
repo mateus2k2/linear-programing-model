@@ -7,33 +7,34 @@ modelo.mod:85: warning: data section ignored
 Reading data section from inputs/sm4.dat...
 inputs/sm4.dat:34: warning: final NL missing before end of file
 34 lines were read
-p[1] = 153 /nr[1] = 54 /nT = 188 /nR = 188 /nM = 1000000 /nGenerating job_assignment...
+p[1] = 153 /nr[1] = 54 /nT = 188 /nR = 188 /nM = 1000000 /nGenerating obj...
+Generating job_assignment...
 Generating time_limit...
 Generating resource_limit...
 Generating job_assignment_limit...
 Generating longest_idle_time...
 Generating longest_idle_time_limit...
 Generating slack_constraint...
-Generating non_negativity_y...
 Model has been successfully generated
 GLPK Integer Optimizer, v4.65
-101 rows, 73 columns, 402 non-zeros
+96 rows, 73 columns, 403 non-zeros
 72 integer variables, all of which are binary
 Preprocessing...
 95 rows, 73 columns, 396 non-zeros
 72 integer variables, all of which are binary
 Scaling...
- A: min|aij| =  1.000e+00  max|aij| =  1.880e+02  ratio =  1.880e+02
-GM: min|aij| =  2.671e-01  max|aij| =  3.743e+00  ratio =  1.401e+01
-EQ: min|aij| =  7.293e-02  max|aij| =  1.000e+00  ratio =  1.371e+01
-2N: min|aij| =  6.250e-02  max|aij| =  1.000e+00  ratio =  1.600e+01
+ A: min|aij| =  1.000e+00  max|aij| =  1.000e+06  ratio =  1.000e+06
+GM: min|aij| =  1.171e-01  max|aij| =  8.540e+00  ratio =  7.293e+01
+EQ: min|aij| =  1.371e-02  max|aij| =  1.000e+00  ratio =  7.293e+01
+2N: min|aij| =  7.813e-03  max|aij| =  1.289e+00  ratio =  1.650e+02
 Constructing initial basis...
 Size of triangular part is 95
 Solving LP relaxation...
 GLPK Simplex Optimizer, v4.65
 95 rows, 73 columns, 396 non-zeros
-      0: obj =   0.000000000e+00 inf =   8.491e+01 (19)
-     49: obj =   0.000000000e+00 inf =   8.882e-16 (0)
+      0: obj =   0.000000000e+00 inf =   2.625e+00 (14)
+     59: obj =   3.402267206e+02 inf =   4.093e-18 (0)
+*    71: obj =  -8.330120000e+05 inf =   8.677e-18 (0)
 OPTIMAL LP SOLUTION FOUND
 Integer optimization begins...
 Long-step dual simplex will be used
@@ -44,12 +45,16 @@ Number of 0-1 knapsack inequalities = 23
 Clique cuts enabled
 Constructing conflict graph...
 Conflict graph has 66 + 6 = 72 vertices
-+    49: mip =     not found yet >=              -inf        (1; 0)
-Cuts on level 0: gmi = 2; mir = 4; cov = 1; clq = 3;
-Cuts on level 4: gmi = 2; mir = 4; cov = 1; clq = 3;
-+   189: >>>>>   0.000000000e+00 >=   0.000000000e+00   0.0% (5; 0)
-+   189: mip =   0.000000000e+00 >=     tree is empty   0.0% (0; 9)
++    71: mip =     not found yet >=              -inf        (1; 0)
+Cuts on level 0: gmi = 1; mir = 13; cov = 2; clq = 9;
+Cuts on level 16: gmi = 1; mir = 13; cov = 2; clq = 9;
++   756: >>>>>   1.123000000e+03 >=  -8.322286667e+05        (17; 0)
+Cuts on level 11: gmi = 1; mir = 16; cov = 4; clq = 10;
++   812: >>>>>   1.093000000e+03 >=  -8.322286667e+05        (12; 17)
+Cuts on level 12: gmi = 3; mir = 17; cov = 6; clq = 10;
++   863: >>>>>   1.065000000e+03 >=  -8.322286667e+05        (13; 20)
++ 28469: mip =   1.065000000e+03 >=     tree is empty   0.0% (0; 2219)
 INTEGER OPTIMAL SOLUTION FOUND
-Time used:   0.0 secs
-Memory used: 0.6 Mb (620602 bytes)
+Time used:   2.7 secs
+Memory used: 1.6 Mb (1627340 bytes)
 Writing MIP solution to 'out/sm4.dat.out'...
