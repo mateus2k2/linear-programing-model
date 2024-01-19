@@ -41,7 +41,7 @@ end;
 """
 
 srcFolder = "C:/Users/mateu/Downloads/FACULDADE/1-COMP/6-Periodo/OTIMIZACAO/TP/src"
-inputFolder  = srcFolder + "/data/Original"
+inputFolder  = srcFolder + "/original"
 outputFolder = srcFolder + "/inputs"
 
 
